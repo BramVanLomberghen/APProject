@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @supervision.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @supervision.end %>
+</p>
+
+<p>
+  <strong>Supervisor:</strong>
+  <%= @supervision.supervisor.name %>
+</p>
+
+<p>
+  <strong>Classroom:</strong>
+  <%= @supervision.classroom.name %>
+</p>
+
+<p>
+  <strong>Exam period:</strong>
+  <%= @supervision.exam_period.name %>
+</p>
+
+<%= link_to 'Edit', edit_supervision_path(@supervision) %> |
+<%= link_to 'Back', supervisions_path %>

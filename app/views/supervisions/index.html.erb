@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Toezichten</h1>
+
+<%= search_form_for @q, url: search_supervisions_path, html: { method: :post }   do |f| %>
+    <th><%= f.label :supervisor_id, "Toezichter:" %></th>
+    <th><%= f.select :supervisor_id_eq,  options_from_collection_for_select(Supervisor.all, "id", "name", @q.supervisor_id_eq), :include_blank => true%></th>
+    <th><%= f.label :classroom_id, "Lokaal:" %></th>
+    <th><%= f.select :classroom_id_eq, options_from_collection_for_select(Classroom.all, "id", "name", @q.classroom_id_eq), :include_blank => true%></th>
+    <th><%= f.label :exam_period_id, "Examenperiode:" %></th>
+    <th><%= f.select :exam_period_id_eq, options_from_collection_for_select(ExamPeriod.all, "id", "name", @q.exam_period_id_eq), :include_blank => true%></th>
+    <%= f.submit %>
+<% end %>
+
+<table class="table table-striped table-bordered table-condensed table-hover table-responsive" >
+  <thead>
+    <tr>
+      <th>Start</th>
+      <th>End</th>
+      <th>Toezichter</th>
+      <th>Lokaal</th>
+      <th>Examenperiod</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @supervisions.each do |supervision| %>
+      <tr>
+        <td><%= supervision.start %></td>
+        <td><%= supervision.end %></td>
+        <td><%= supervision.supervisor.name %></td>
+        <td><%= supervision.classroom.name %></td>
+        <td><%= supervision.exam_period.name %></td>
+        <td><%= link_to 'Show', supervision %></td>
+        <td><%= link_to 'Edit', edit_supervision_path(supervision) %></td>
+        <td><%= link_to 'Destroy', supervision, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Supervision', new_supervision_path %>
+
+<div id='calendar'></div>

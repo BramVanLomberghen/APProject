@@ -1,0 +1,21 @@
+<h1>Lokaalverdeling</h1>
+<%= search_form_for @q, url: search_classroom_distributions_path, html: { method: :post }   do |f| %>
+    <th><%= f.label :student_id, "Student:" %></th>
+    <th><%= f.select :student_id_eq,  options_from_collection_for_select(Student.all, "id", "name", @q.student_id_eq), :include_blank => true%></th>
+    <th><%= f.label :course_id_eq, "Vak:" %></th>
+    <th><%= f.select :course_id_eq, options_from_collection_for_select(Course.all, "id", "name", @q.course_id_eq), :include_blank => true%></th>
+    <%= f.submit %>
+<% end %>
+
+<table class="table table-striped table-bordered table-condensed table-hover">
+  <%= render 'form_header' %>
+  <%= render 'form_table' %>
+</table>
+
+<td>Download:</td>
+<a href="/lokaalverdeling.pdf">PDF</a>
+<td>/</td>
+<%= link_to 'XLS', classroom_distributions_path(request.parameters.merge(format: "xls"))%>
+
+
+

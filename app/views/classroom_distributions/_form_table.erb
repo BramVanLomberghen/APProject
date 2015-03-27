@@ -1,0 +1,11 @@
+<tbody>
+<% @student_exams.each do |s| %>
+    <tr>
+      <td><%= s.student.name%></td>
+      <td><%= s.course.specialization.name %></td>
+      <td><%= s.start%></td>
+      <td><%= s.course.name%></td>
+      <td><%= s.supervision.classroom.name%></td>
+    </tr>
+<% end %>
+</tbody>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @student_exam.student_id %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @student_exam.course_id %>
+</p>
+
+<p>
+  <strong>Supervision:</strong>
+  <%= @student_exam.supervision_id %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @student_exam.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @student_exam.end %>
+</p>
+
+<p>
+  <strong>Present:</strong>
+  <%= @student_exam.present %>
+</p>
+
+<%= link_to 'Edit', edit_student_exam_path(@student_exam) %> |
+<%= link_to 'Back', student_exams_path %>

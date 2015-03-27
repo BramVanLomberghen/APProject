@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @exam_period.name %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @exam_period.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @exam_period.end %>
+</p>
+
+<%= link_to 'Edit', edit_exam_period_path(@exam_period) %> |
+<%= link_to 'Back', exam_periods_path %>

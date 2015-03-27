@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Classroom Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Abbreviation</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @classroom_types.each do |classroom_type| %>
+      <tr>
+        <td><%= classroom_type.name %></td>
+        <td><%= classroom_type.abbreviation %></td>
+        <td><%= classroom_type.description %></td>
+        <td><%= link_to 'Show', classroom_type %></td>
+        <td><%= link_to 'Edit', edit_classroom_type_path(classroom_type) %></td>
+        <td><%= link_to 'Destroy', classroom_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Classroom type', new_classroom_type_path %>

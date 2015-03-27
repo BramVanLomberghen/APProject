@@ -1,0 +1,31 @@
+<%= form_for :comment, url: comments_path do |f| %>
+
+    <% if @comment.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@comment.errors.count, "error") %> prohibited
+            this article from being saved:
+          </h2>
+          <ul>
+            <% @article.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div>
+      <div class="col-xs-3 col-s-3 col-l-6 col-xl-6">
+        <p>
+         <%= f.label :comment %><br>
+         <%= f.text_area :comment %>
+        </p>
+
+        <p>
+         <%= f.submit %>
+        </p>
+        <%= link_to 'Back', comments_path %>
+      </div>
+    </div>
+<% end %>
+

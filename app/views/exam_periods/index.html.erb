@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Exam Periods</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start</th>
+      <th>End</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exam_periods.each do |exam_period| %>
+      <tr>
+        <td><%= exam_period.name %></td>
+        <td><%= exam_period.start %></td>
+        <td><%= exam_period.end %></td>
+        <td><%= link_to 'Show', exam_period %></td>
+        <td><%= link_to 'Edit', edit_exam_period_path(exam_period) %></td>
+        <td><%= link_to 'Destroy', exam_period, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Exam period', new_exam_period_path %>

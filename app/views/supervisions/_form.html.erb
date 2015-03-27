@@ -1,0 +1,37 @@
+<%= form_for(@supervision) do |f| %>
+  <% if @supervision.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@supervision.errors.count, "error") %> prohibited this supervision from being saved:</h2>
+
+      <ul>
+      <% @supervision.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :start %><br>
+    <%= f.datetime_select :start %>
+  </div>
+  <div class="field">
+    <%= f.label :end %><br>
+    <%= f.datetime_select :end %>
+  </div>
+  <div class="field">
+    <%= f.label :supervisor_exams_id %><br>
+    <%= f.number_field :supervisor_exams_id%>
+  </div>
+  <div class="field">
+    <%= f.label :classroom_id %><br>
+    <%= f.number_field :classroom_id %>
+  </div>
+  <div class="field">
+    <%= f.label :exam_period_id %><br>
+    <%= f.number_field :exam_period_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

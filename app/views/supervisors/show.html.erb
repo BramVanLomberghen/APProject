@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @supervisor.name %>
+</p>
+
+<p>
+  <strong>Initials:</strong>
+  <%= @supervisor.initials %>
+</p>
+
+<%= link_to 'Edit', edit_supervisor_path(@supervisor) %> |
+<%= link_to 'Back', supervisors_path %>
